@@ -27,7 +27,7 @@ int main(){
     
     char* tmp = inpArr2;
     while(*tmp++){ // run until 
-        if(inpArrr1==NULL)outOfMem(); //catch exception
+        if(inpArr1==NULL)outOfMem(); //catch exception
         inpArr1 = (char*)realloc((void*)inpArr1, sizeof(char)); //expand 1B too large
     }
     mystrcat(inpArr2,inpArr1); //cat strings, arr2 in arr1
