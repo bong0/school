@@ -44,7 +44,7 @@ return 0;
 int dynRead(char *inpArr){
     char tmpChar;
     
-    printf("Bitte geben sie einen String ein: ");
+    printf("Bitte geben Sie einen String ein: ");
     
     //the second condition is because we can't count indexes above the addrspace of (u)int
     unsigned int i; //needed for termination char
