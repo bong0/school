@@ -1,17 +1,13 @@
 #include <stdio.h>
-#include <iostream>
 #include <stdlib.h> //for malloc
-
-using namespace std;
-#define MALLOC 1
-#define COUNT_DEMO 1
 
 int mystrlen(char *str, int processType);
 bool mystrcpy(char *src, char *dst);
 bool mystrcat(char *src, char *dst);
-bool dynRead(char *inpArr);
+int dynRead(char *inpArr); //returns 'true' length e.g. w/ \0
 void mystrrev(char *str);
 void outOfMem();
+void alloced(unsigned int bytes, bool truncate=0); //for debugging purposes
 
 int main(){
 
@@ -20,13 +16,15 @@ int main(){
 
     if(inpArr1 == NULL || inpArr2 == NULL) outOfMem();
     
-    dynRead(inpArr1);
-    dynRead(inpArr2);
-    printf("Die Laenge des vorderen Strings \"%s\" ist: %d.\n", inpArr1, mystrlen(inpArr1, 2));
-    printf("Die Laenge des hinteren Strings \"%s\" ist: %d.\n", inpArr2, mystrlen(inpArr2, 2));
-    
+    printf("arr1 has grown to %d bytes\n",dynRead(inpArr1));
+    //alloced(0,1); putchar('\n');
+    printf("arr2 has grown to %d bytes\n",dynRead(inpArr2));
+    //alloced(0,1); putchar('\n');
+    printf("Die Laenge des vorderen Strings \"%s\" ist: %d.\n", inpArr1, mystrlen(inpArr1, 1));
+    printf("Die Laenge des hinteren Strings \"%s\" ist: %d.\n", inpArr2, mystrlen(inpArr2, 1));
+
     char* tmp = inpArr2;
-    while(*tmp++){ // run until 
+    while(*tmp++){ // run until
         if(inpArr1==NULL)outOfMem(); //catch exception
         inpArr1 = (char*)realloc((void*)inpArr1, sizeof(char)); //expand 1B too large
     }
@@ -35,59 +33,63 @@ int main(){
     mystrrev(inpArr1); //reverse catted str
     printf("%s\n", inpArr1); //print reversed, concatenated string
 
-//free up mem
+
+//free up mem FIXME
 free(inpArr1);
 free(inpArr2);
 
 return 0;
 }
 
-bool dynRead(char *inpArr){
+int dynRead(char *inpArr){
     char tmpChar;
     
     printf("Bitte geben sie einen String ein: ");
     
     //the second condition is because we can't count indexes above the addrspace of (u)int
-    unsigned int i;
+    unsigned int i; //needed for termination char
     for(i=0; ((tmpChar=getchar()) != '\n'); i++){
-        if(i >= (2<<(sizeof(int)*8)-1)-1){ //val range of uint
+        if(0/*i >= (2<<(sizeof(int)*8)-1)-1*/){ //val range of uint
             printf("\nnoooo, that's too long\n");
-            break;
+            exit(1);
         }
         else if(i==0){
             *inpArr = tmpChar; //write to first index
         }
         else{
-            inpArr = (char*)realloc((void*)inpArr, sizeof(char)); //inflate array, and reassing it, could have moved 
+            //inflate array, and reassing it, could have moved, +1 because we have to count index 0
+            inpArr = (char*)realloc((void*)inpArr, sizeof(char)*(i+1)); 
             if(inpArr == NULL) outOfMem(); //catch exception
-            char *addr = &inpArr[i]; //inflate inpArr
-            *addr = tmpChar; //write to following index
+            inpArr[i] = tmpChar; //write to created index
         }
     }
-  //  inpArr = (char*)realloc((void*)inpArr, sizeof(char));
-  //  inpArr[i+1] = 0;
-    return 0;
+
+    i++; //we grow
+    inpArr = (char*)realloc((void*)inpArr, sizeof(char)*(i+1)); // alloc 1 more
+    inpArr[i] = '\0'; //set nullbyte
+
+    return i++; //include index 0
 }
 int mystrlen(char *str, int processType){
-    int charCount=0;
+    int cc;
     switch(processType){
         case 1:
-            for(int i=0; str[i]!='\0';i++){
-                charCount++;
+            for(cc=0; str[cc]!='\0';cc++){
+                cc++;
             }
             break;
         case 2:
-            for(int i=0; *(str+i)!='\0';i++){
-                charCount++;
+            for(cc=0; *(str+cc)!='\0';cc++){
+                cc++;
             }
             break;
         case 3:
-            for(int i=0; *str++!='\0';i++){
-                charCount++;
+            for(cc=0; *str++!='\0';cc++){
+                cc++;
             }
             break;
     }
-    return charCount;
+    return cc;
 }
 
 bool mystrcpy(char *src, char *dst){
@@ -120,4 +122,10 @@ void mystrrev(char *str){
 void outOfMem(){
     printf("FATAL: Out of Memory\n");
     exit(1);
+}
+void alloced(unsigned int bytes, bool truncate){
+    static unsigned int bytecount;
+    if(truncate){ bytecount=0; return; }
+    bytecount+=bytes;
+    printf("\rallocated %u bytes", bytecount);
 }
