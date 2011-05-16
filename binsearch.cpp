@@ -6,8 +6,8 @@ int main(){
     int key=0;
     for(int i=1; (i*3)<=60 && i<=30; i++) arr[i] = i*3;
     
-    do printf("Schlagen sie ein Vielfaches im Bereich 0-60 vor: ");
-    while( !((scanf("%d", &key),key)%2) );
+    do printf("Schlagen sie ein Vielfaches von 3 im Bereich 0-60 vor: ");
+    while( !((scanf("%d", &key),key)%3) );
     
     printf("%d\n", binsearch(arr, 0, 30, key));
 return 0;
