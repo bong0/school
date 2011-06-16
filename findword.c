@@ -1,4 +1,4 @@
-/home/bongo/dev/bsgg/CPP/findword/main.c/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*- 
+/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*- 
  * findword.c
  * Copyright (C) Julian Kessel 2011 <julian@juliankessel.de>
  * 
