@@ -3,7 +3,6 @@
 #include <math.h>
 #include "Vektor.h"
 
-
 Vektor::Vektor(){
     this->x = 0;
     this->y = 0;
@@ -61,11 +60,41 @@ void Vektor::setZ(double z){
 }
 Vektor Vektor::operator+(Vektor v1){
     return this->vadd(v1);
+    /* auch möglich:
+     * return Vektor(x+v1.x, y+v1.y, z+v1.z);
+     */
 }
 double Vektor::operator+(double f){
     return this->Betrag()+f;
 }
 
+/* _Wieso_ funktioniert das nicht?
+ * std::ostream& Vektor::operator<<(std::ostream &ostr){
+    ostr << "(" << this->x
+         << "|" << this->y
+         << "|" << this->z
+         << ")";
+    return ostr;
+ */
+
 Vektor::~Vektor() {
     std::cout << "gelöscht." << std::endl;
+}
+
+std::ostream& operator<<(std::ostream &ostr, Vektor &v1){
+    ostr << "(" << v1.x
+         << "|" << v1.y
+         << "|" << v1.z
+         << ")";
+    return ostr; 
+}
+
+std::istream& operator>>(std::istream &istr, Vektor &v1){
+    std::cout << "x: ";
+    istr >> v1.x;
+    std::cout << "y: ";
+    istr >> v1.y;
+    std::cout<< "z: ";
+    istr >> v1.z;
+    return istr; 
 }

@@ -13,7 +13,9 @@ class Vektor {
         double x;
         double y;
         double z;
-        
+        friend std::ostream& operator<<(std::ostream &ostr, Vektor &v1);  // Deklaration d. Operators
+                                                                         // als friend-Fkt           
+        friend std::istream& operator>>(std::istream &istr, Vektor &v1);
     protected:
     public:
         Vektor();
@@ -30,6 +32,7 @@ class Vektor {
         void setZ(double z);
         Vektor operator+(Vektor v1);
         double operator+(double f);
+        //std::ostream& operator<<(std::ostream &ostr);
 };
 #endif	/* VEKTOR_H */
 

@@ -26,6 +26,12 @@ int main() {
            (*pv+v2).show() << endl;
     cout<<"wir berechnen den Betrag pvs mithilfe des überladenen operator+ und addieren 7"
         <<endl << *pv+7.0 <<endl;
+    cout<< "wir verwenden die Methode operator<< um v2 direkt, ohne show mit cout auszugeben:" << endl
+           << v2 << endl;
+    cout << "wir füllen v1 mit werten und operator>> via cin:" << endl;
+    cin >> v1;
+    cout << v1 << endl;
+    
     delete pv;
     return 0;
 }
