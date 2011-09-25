@@ -10,6 +10,7 @@
 
 class Fan {
 public:
+    Fan();
     Fan(std::string fan_model, long rotation_speed, bool hooligan);
     Fan(const Fan& orig); /* Copy-Konstuktor:
                            * erstellt neues Objekt von einem

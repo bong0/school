@@ -28,10 +28,12 @@ int main() {
         <<endl << *pv+7.0 <<endl;
     cout<< "wir verwenden die Methode operator<< um v2 direkt, ohne show mit cout auszugeben:" << endl
            << v2 << endl;
-    cout << "wir füllen v1 mit werten und operator>> via cin:" << endl;
-    cin >> v1;
-    cout << v1 << endl;
-    
+    cout << "wir füllen v1 und v2 mit werten und operator>> via cin:" << endl;
+    cin >> v1 >> v2;
+    cout << v1 << endl
+         << v2 << endl;
+    cout << "cast to double" << (double)v1 << endl;
+                                                                                                                                                        
     delete pv;
     return 0;
 }

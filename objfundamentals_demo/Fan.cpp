@@ -7,6 +7,12 @@
 
 #include "Fan.h"
 
+Fan::Fan(){
+    this->fan_model="";
+    this->hooligan=false;
+    this->rotation_speed=0;
+}
+
 Fan::Fan(std::string fan_model, long rotation_speed,
          bool hooligan):fan_model("Aggressor"),rotation_speed(9999),
                         hooligan(true)  // Eine Initialisierungsliste

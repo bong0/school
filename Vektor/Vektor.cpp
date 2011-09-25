@@ -68,15 +68,6 @@ double Vektor::operator+(double f){
     return this->Betrag()+f;
 }
 
-/* _Wieso_ funktioniert das nicht?
- * std::ostream& Vektor::operator<<(std::ostream &ostr){
-    ostr << "(" << this->x
-         << "|" << this->y
-         << "|" << this->z
-         << ")";
-    return ostr;
- */
-
 Vektor::~Vektor() {
     std::cout << "gelöscht." << std::endl;
 }
@@ -97,4 +88,8 @@ std::istream& operator>>(std::istream &istr, Vektor &v1){
     std::cout<< "z: ";
     istr >> v1.z;
     return istr; 
+}
+
+double operatordouble(Vektor &v1){
+    return v1.Betrag();
 }
