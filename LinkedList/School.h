@@ -29,24 +29,30 @@ public:
             string name;
             
     };
-    class Knot { // ein Knoten für einfach-direktionale Assoziation
+    class Knot { // ein Knoten für bidirektionale Assoziation
         public:   
             Knot();
             Knot *next;
+            Knot *prev; //previous
             Student student;
     };
     class ListMaster { // ListMaster speichert metadaten der Liste (Anfang,Ende)
         public:
           ListMaster();          
-          void QuickSort();
+          void QuickSort(); 
           void append(Student&);
+          void prepend(Student&);
           void autoInsert(Student&);
+          void insertBetween(Knot* toLeft, Knot* toRight, Knot* item);
           Student get(unsigned long number);
-          void listAll();
-          ~ListMaster(); 
+          void listAll(); 
+          void listAllCompact();
+          ~ListMaster();
         private:
           Knot *head;
           Knot *tail;
+          void QuickSort(Knot*, Knot*); // we don't want to make the backend public
+          void replace(Knot*, Knot*);
     };
     ListMaster& getList();
     
