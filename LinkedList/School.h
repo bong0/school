@@ -13,8 +13,9 @@ using namespace std;
 class School {
 public:
     School();
+    School(bool debug);
     School(const School& orig);
-    virtual ~School();
+    bool isDebugging();
     
      /* wir verzichten auf Datenkapselung da die ListMaster-Instanz
       * von School priv ist
@@ -25,7 +26,7 @@ public:
         public:
             Student();
             Student(string, unsigned long int);
-            unsigned long studentNo;
+            unsigned long int studentNo;
             string name;
             
     };
@@ -43,7 +44,6 @@ public:
           void append(Student&);
           void prepend(Student&);
           void autoInsert(Student&);
-          void insertBetween(Knot* toLeft, Knot* toRight, Knot* item);
           Student get(unsigned long number);
           void listAll(); 
           void listAllCompact();
@@ -51,12 +51,13 @@ public:
         private:
           Knot *head;
           Knot *tail;
-          void QuickSort(Knot*, Knot*); // we don't want to make the backend public
+          void QuickSort(Knot*, Knot*, Knot* lastPivot); // we don't want to make the backend public
           void replace(Knot*, Knot*);
+          void insertBetween(Knot* toLeft, Knot* toRight, Knot* item);
     };
     ListMaster& getList();
     
 private:
     ListMaster lm;
+    static bool debug;
 };
-
