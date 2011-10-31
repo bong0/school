@@ -22,7 +22,7 @@ Konto::Konto() {
     this->inhaber = "Anonymous";
     this->isAuthorized = false;
 }
- Konto::Konto(uint ktonr, double ktostand, std::string inhaber, std::string pin){
+Konto::Konto(uint ktonr, double ktostand, std::string inhaber, std::string pin){
     this->ktonr = ktonr;
     this->ktostand = ktostand;
     this->inhaber = inhaber;
