@@ -2,6 +2,7 @@
 #define CLASS_T
 class T {
     friend class container;
+    friend std::istream& operator>>(std::istream&, T&);
  public:
         T();
         T(int[], int length);

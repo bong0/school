@@ -69,3 +69,17 @@ T::~T(){
 int operator+(int l, T& obj){
     return (l+=obj.betrag());
 }
+std::istream& operator>>(std::istream& cin, T& dest){
+    int anz;
+    cout << "Wie viele Elemente möchten sie eingeben?: ";
+    cin >> anz;
+    
+    delete [] dest.arr;
+    dest.arr = new int[anz];
+    dest.arrLength = anz;
+    for(int i=0; i<anz; i++){
+        cout << "Element " << i+1 << ": ";
+        cin >> dest.arr[i];
+    }
+    return cin;
+}
