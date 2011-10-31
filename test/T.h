@@ -1,6 +1,7 @@
 #ifndef CLASS_T
 #define CLASS_T
 class T {
+    friend class container;
  public:
         T();
         T(int[], int length);
