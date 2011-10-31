@@ -68,6 +68,10 @@ double Vektor::operator+(double f){
     return this->Betrag()+f;
 }
 
+Vektor::operator double(){
+    return this->Betrag();
+}
+
 Vektor::~Vektor() {
     std::cout << "gelöscht." << std::endl;
 }
@@ -90,6 +94,3 @@ std::istream& operator>>(std::istream &istr, Vektor &v1){
     return istr; 
 }
 
-double operatordouble(Vektor &v1){
-    return v1.Betrag();
-}

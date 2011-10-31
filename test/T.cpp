@@ -7,10 +7,7 @@ using namespace std;
 T::T(){
  this->arr = new int[10];
  this->arrLength = 10;
- if(!(this->arr)) {
-     cout << "out of mem...";
-     exit(1);
- }
+ if(!(this->arr)) outofmem();
  for(int i=0; i<10; i++){
   arr[i] = i*10;
  }
@@ -48,6 +45,8 @@ int T::betrag(){
     }
     return betrag;
 }
+T::operator int(){return this->betrag();}
+
 T& T::operator=(T& obj){
     if(&obj == this) return *this; //catch a = a cases 
     if(arr != NULL) delete [] arr; //wipe old data

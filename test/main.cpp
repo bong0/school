@@ -15,6 +15,7 @@ int main(){
  cout << "betrag: " << newtobj.betrag() << endl;
  cout << "5+newtobj: " << 5+newtobj << endl;
  container c;
+ cout << "cast from obj to int: (int)newtobj => " << (int)newtobj << endl;
 }
 void func(T obj){
     cout << "copied object via copyconstr:" << endl;

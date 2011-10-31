@@ -12,6 +12,7 @@ class T {
         int betrag();
         int get(int index);
         T& operator=(T&);
+        operator int();
  private:
         int *arr;
         int arrLength; // it's NOT possible to do a sizeof(arr) with correct results

@@ -32,7 +32,7 @@ int main() {
     cin >> v1 >> v2;
     cout << v1 << endl
          << v2 << endl;
-    cout << "cast to double" << (double)v1 << endl;
+    cout << "cast to double " << (double)v1 << endl;
                                                                                                                                                         
     delete pv;
     return 0;
