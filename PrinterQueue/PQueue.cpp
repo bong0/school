@@ -18,13 +18,12 @@ PQueue::PQueue(const PQueue& orig) {}
 
 PQueue::~PQueue() {
     Knot* bunny = this->head;
-    Knot* nextHop;
-    do {
-        if (bunny == NULL) break;
+    Knot* nextHop = bunny;
+    while((bunny = nextHop)->next) {
         nextHop = bunny->next;
-        cout << "popping printjob " << bunny->job;
+        cout << "popping printjob " << *(bunny->job);
         delete bunny;
-    } while (bunny = nextHop);
+    }
 }
 void PQueue::show(){
     Knot* bunny;
@@ -32,9 +31,12 @@ void PQueue::show(){
         Errors::listEmpty();
         return;
     }
-    while(bunny->next == NULL){
-        cout << bunny->job;
+    cout << "LISTING:" << endl;
+    do {
+        cout << *(bunny->job);
+        bunny = bunny->next;
     }
+    while(bunny->next != NULL);
 }
 bool PQueue::printNextJob(){
     cout << "Printing " << this->head->job;
@@ -50,6 +52,14 @@ void PQueue::pop(){
 }
 
 void PQueue::newJob(long jobId, long prio, string data){
+    Knot* knot = new Knot(jobId, prio, data);
+    if(isEmpty()){
+        if(!knot) Errors::outOfMem();
+        this->head = knot;
+        this->tail = knot;
+        knot->next = NULL;
+        knot->prev = NULL;
+    }
     this->tail->next = new Knot(jobId, prio, data); // was NULL previously
     this->tail->next->prev = this->tail; // connect back
     this->tail = this->tail->next; // set new tail;
@@ -76,7 +86,7 @@ void PQueue::delJob(long id){
     while(this->head != this->tail);
 }
 bool PQueue::isEmpty(){
-    if(this->head == this->tail == NULL) return true;
+    if(this->head == NULL && this->tail == NULL) return true;
     else return false;
 }
 /* Knot */
@@ -95,10 +105,9 @@ Knot::~Knot(){
 }
 
 /* PrintJob */
-ostream& operator<<(PrintJob& job, ostream& out){
+ostream& operator<<(ostream& out, PrintJob& job){
     out << "ID: " << job.id << " Priority: " << job.prio << " Payload: " << job.data << endl;
 }
-
     
 void Errors::outOfMem(){
     cout << "[FATAL] We ran out of heap space !" << endl

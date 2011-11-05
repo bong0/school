@@ -45,7 +45,7 @@ class Knot {
 class PrintJob {
     friend class PQueue;
     friend class Knot;
-    friend ostream& operator<<(PrintJob&, ostream&);
+    friend ostream& operator<<(ostream&, PrintJob&);
     private:
         long id;
         long prio;
@@ -53,6 +53,7 @@ class PrintJob {
 };
 class Errors {
     public:
+        Errors();
         static void listEmpty();
         static void outOfMem();
 };
