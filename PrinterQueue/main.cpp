@@ -7,7 +7,7 @@
 
 #include <cstdlib>
 #include <iostream>
-#include "PQueue.h"
+#include "pqueue.h"
 using namespace std;
 
 /*
@@ -16,9 +16,12 @@ using namespace std;
 int main(int argc, char** argv) {
     PQueue pq;
     cout << "Printer Queue is Empty: " << pq.isEmpty() << endl;
-    pq.newJob(42, 1, "TestJob");
+    for(int i=0; i<10; i++){
+		pq.newJob(i, 10-i, "TestJob");
+	}
     pq.show();
-    
+    pq.delJob(5);
+    cout << "Printer Queue is Empty: " << pq.isEmpty() << endl;
     return 0;
 }
 

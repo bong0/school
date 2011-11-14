@@ -1,9 +1,9 @@
-/* 
- * File:   PQueue.cpp
- * Author: bongo
- * 
- * Created on November 3, 2011, 10:24 AM
- */
+/*
+* File: PQueue.cpp
+* Author: bongo
+*
+* Created on November 3, 2011, 10:24 AM
+*/
 
 #include "PQueue.h"
 #include <cstdlib>

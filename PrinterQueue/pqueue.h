@@ -1,5 +1,5 @@
 /* 
- * File:   PQueue.h
+ * File:   pqueue.h
  * Author: bongo
  *
  * Created on November 3, 2011, 10:24 AM
@@ -26,11 +26,10 @@ public:
     void clear();
     
 private:
-    bool itemCount;
+    long itemCount;
     Knot* head;
     Knot* tail;
 };
-
 class Knot {
     friend class PQueue;
     public:
@@ -53,7 +52,9 @@ class PrintJob {
 };
 class Errors {
     public:
-        Errors();
         static void listEmpty();
         static void outOfMem();
+		static void couldNotFindItem();
+	private:
+		Errors();
 };
