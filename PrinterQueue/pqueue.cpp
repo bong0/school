@@ -39,6 +39,7 @@ void PQueue::show(){
         bunny = bunny->next;
     }
     while(bunny != NULL);
+	cout << "Item Count: " << this->itemCount << endl;
 }
 bool PQueue::printNextJob(){
     cout << "Printing " << this->head->job;
@@ -56,8 +57,8 @@ void PQueue::pop(){
 
 void PQueue::newJob(long jobId, long prio, string data){
     Knot* knot = new Knot(jobId, prio, data);
+    if(!knot) Errors::outOfMem();
     if(isEmpty()){
-        if(!knot) Errors::outOfMem();
         this->head = knot;
         this->tail = knot;
         knot->next = NULL;
@@ -67,26 +68,23 @@ void PQueue::newJob(long jobId, long prio, string data){
 	    this->tail->next = new Knot(jobId, prio, data); // was NULL previously
 		this->tail->next->prev = this->tail; // connect back
 		this->tail = this->tail->next; // set new tail;
-		this->tail->next = NULL; // set nextreference to NULL	
+		this->tail->next = NULL; // set nextreference to NULL
 	}
+	this->itemCount+=1;
 }
 void PQueue::delJob(long id){
     if(this->isEmpty()) return;
     Knot* bunny = this->head;
 	if(this->head == this->tail){
 		this->head = this->tail = NULL;
+		cout << "deleting job id: " << bunny->job->id << endl;
 		delete bunny;
 		this->itemCount-=1;
 		return;
 	}
 	if(bunny->job->id == id){
-		if(bunny == this->head) this->pop();
-		else if(bunny == this->tail){
-			this->tail = this->tail->prev; // move tail backwards (left)
-			delete this->tail->next;// delete old tail
-			this->tail->next = NULL; // correct forward reference
-			this->itemCount-=1;
-		}
+		cout << "deleting job id: " << bunny->job->id << endl;
+		this->pop();
 	}
 	else { 	// ok, we're somewhere in the middle of the queue
 			// do linear search
@@ -98,10 +96,19 @@ void PQueue::delJob(long id){
 			Errors::couldNotFindItem();
 			return;
 		}
+		if(bunny == this->tail && (bunny->job->id == id)){
+			cout << "deleting job id: " << bunny->job->id << endl;
+			this->tail = this->tail->prev; // move tail backwards (left)
+			delete this->tail->next;// delete old tail
+			this->tail->next = NULL; // correct forward reference
+			this->itemCount-=1;
+			return;
+		}
 		bunny->next->prev = bunny->prev; // connect backward
-		bunny->prev->next = bunny->next; // connect forward			
+		bunny->prev->next = bunny->next; // connect forward
+		cout << "deleting job id: " << bunny->job->id << endl;
 		delete bunny; // cu
-		cout << "deleted from middle" << endl;
+		this->itemCount-=1;
 	}
 	
 }
@@ -139,5 +146,5 @@ void Errors::listEmpty(){
     cout << "[-] The list is empty" << endl;
 }
 void Errors::couldNotFindItem(){
-	cout << "[-] Could not find that item"<< endl;
+	cout << "[-] Could not find that item, skipping..."<< endl;
 }

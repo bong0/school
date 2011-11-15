@@ -21,6 +21,7 @@ int main(int argc, char** argv) {
 	}
     pq.show();
     pq.delJob(5);
+	pq.delJob(9);
     cout << "Printer Queue is Empty: " << pq.isEmpty() << endl;
     return 0;
 }
