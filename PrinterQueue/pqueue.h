@@ -22,8 +22,8 @@ public:
     bool isEmpty();
     void newJob(long, long, string);
     void delJob(long id);
+	void clear();
     void pop();
-    void clear();
     
 private:
     long itemCount;

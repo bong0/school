@@ -10,9 +10,6 @@
 #include "pqueue.h"
 using namespace std;
 
-/*
- * 
- */
 int main(int argc, char** argv) {
     PQueue pq;
     cout << "Printer Queue is Empty: " << pq.isEmpty() << endl;
@@ -23,6 +20,9 @@ int main(int argc, char** argv) {
     pq.delJob(5);
 	pq.delJob(9);
     cout << "Printer Queue is Empty: " << pq.isEmpty() << endl;
+	pq.clear();
+    cout << "Printer Queue is Empty: " << pq.isEmpty() << endl;
+	
     return 0;
 }
 

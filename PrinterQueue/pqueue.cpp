@@ -6,7 +6,7 @@
 */
 
 #include "pqueue.h"
-#include <cstdlib>
+#include <cstdlib>	//exit()
 #include <iostream>
 
 using namespace std;
@@ -14,15 +14,19 @@ using namespace std;
 /* PrinterQueue List Manager */
 PQueue::PQueue(): head(NULL), tail(NULL), itemCount(0) {}
 
-PQueue::PQueue(const PQueue& orig) {}
-
 PQueue::~PQueue() {
-    Knot* bunny = this->head;
+	this->clear();
+}
+void PQueue::clear(){
+	if(isEmpty()) return; // we don't mess with NULL pointers
+	cout << "clearing list..." << endl;
+	Knot* bunny = this->head;
     Knot* nextHop = bunny;
-	do {      
+	do {
 		nextHop = bunny->next;
         cout << "popping printjob " << *(bunny->job);
         delete bunny;
+		this->itemCount-=1;
     }
     while(bunny = nextHop);
 	this->head = this->tail = NULL;
@@ -110,7 +114,6 @@ void PQueue::delJob(long id){
 		delete bunny; // cu
 		this->itemCount-=1;
 	}
-	
 }
 
 bool PQueue::isEmpty(){
