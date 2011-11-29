@@ -24,6 +24,7 @@ public:
     void delJob(long id);
 	void clear();
     void pop();
+	bool containsJob(Knot*);
     
 private:
     long itemCount;
@@ -55,6 +56,7 @@ class Errors {
         static void listEmpty();
         static void outOfMem();
 		static void couldNotFindItem();
+		static void isDuplicate();
 	private:
 		Errors();
 };

@@ -7,14 +7,16 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <time.h> // for rand seed
 #include "pqueue.h"
 using namespace std;
 
 int main(int argc, char** argv) {
     PQueue pq;
     cout << "Printer Queue is Empty: " << pq.isEmpty() << endl;
+	srand(time(NULL));
     for(int i=0; i<10; i++){
-		pq.newJob(i, 10-i, "TestJob");
+		pq.newJob(i, rand()%50, "TestJob");
 	}
     pq.show();
     pq.delJob(5);
