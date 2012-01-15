@@ -32,17 +32,17 @@ void PQueue::clear(){
 	this->head = this->tail = NULL;
 }
 void PQueue::show(){
-    Knot* bunny;
-    if((bunny = this->head) == NULL){
-        Errors::listEmpty();
-        return;
-    }
-    cout << "LISTING:" << endl;
-    do {
-        cout << *(bunny->job);
-        bunny = bunny->next;
-    }
-    while(bunny != NULL);
+	Knot* bunny;
+	if((bunny = this->head) == NULL){
+ 	       Errors::listEmpty();
+ 	       return;
+	}
+	cout << "LISTING:" << endl;
+	do {
+		cout << *(bunny->job);
+		bunny = bunny->next;
+	}
+	while(bunny != NULL);
 	cout << "Item Count: " << this->itemCount << endl;
 }
 
