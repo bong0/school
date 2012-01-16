@@ -21,28 +21,28 @@ void PQueue::clear(){
 	if(isEmpty()) return; // we don't mess with NULL pointers
 	cout << "clearing list..." << endl;
 	Knot* bunny = this->head;
-    Knot* nextHop = bunny;
+	Knot* nextHop = bunny;
 	do {
 		nextHop = bunny->next;
-        cout << "popping printjob " << *(bunny->job);
-        delete bunny;
+		cout << "popping printjob " << *(bunny->job);
+        	delete bunny;
 		this->itemCount-=1;
-    }
-    while(bunny = nextHop);
+    	}
+    	while(bunny = nextHop);
 	this->head = this->tail = NULL;
 }
 void PQueue::show(){
-    Knot* bunny;
-    if((bunny = this->head) == NULL){
-        Errors::listEmpty();
-        return;
-    }
-    cout << "LISTING:" << endl;
-    do {
-        cout << *(bunny->job);
-        bunny = bunny->next;
-    }
-    while(bunny != NULL);
+	Knot* bunny;
+	if((bunny = this->head) == NULL){
+ 	       Errors::listEmpty();
+ 	       return;
+	}
+	cout << "LISTING:" << endl;
+	do {
+		cout << *(bunny->job);
+		bunny = bunny->next;
+	}
+	while(bunny != NULL);
 	cout << "Item Count: " << this->itemCount << endl;
 }
 
