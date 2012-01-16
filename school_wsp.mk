@@ -1,8 +1,8 @@
 .PHONY: clean All
 
 All:
-	@echo ----------Building project:[ PrinterQueue - Debug ]----------
-	@cd "PrinterQueue" && "$(MAKE)" -f "PrinterQueue.mk"
+	@echo ----------Building project:[ Inheritance_Demo - Debug ]----------
+	@cd "Inheritance_Demo" && "$(MAKE)" -f "Inheritance_Demo.mk"
 clean:
-	@echo ----------Cleaning project:[ PrinterQueue - Debug ]----------
-	@cd "PrinterQueue" && "$(MAKE)" -f "PrinterQueue.mk" clean
+	@echo ----------Cleaning project:[ Inheritance_Demo - Debug ]----------
+	@cd "Inheritance_Demo" && "$(MAKE)" -f "Inheritance_Demo.mk" clean

@@ -81,7 +81,7 @@ void PQueue::newJob(long jobId, long prio, string data){
 		if(knot->job->prio < this->tail->job->prio){ // we have to search for the insertion pos
 			right = this->head;
 			while(prio > right->job->prio){ 
-				cout << "checking item " << *(right->job);
+				//cout << "checking item " << *(right->job);
 				right = right->next;
 			}
 			cout << "ended loop; right prio: " << right->job->prio << endl;
@@ -109,10 +109,10 @@ void PQueue::newJob(long jobId, long prio, string data){
 			this->tail->next = NULL; // set nextreference to NULL
 		}
 	}
-	cout << "added knot: " << *(knot->job) << endl;
+	cout << "added knot: " << *(knot->job);
 	
 	this->itemCount+=1;
-	this->show();
+	//this->show();
 }
 void PQueue::delJob(long id){
     if(this->isEmpty()) return;
