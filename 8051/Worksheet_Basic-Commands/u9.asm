@@ -13,7 +13,7 @@ DECR:
 DJNZ ACC,ITER; the counter has not reached zero, increment 
 SJMP END; reached zero => bail out
 
-ISNG:; being here indicetes R0 <= start val of A
+ISNG:; being here indicates R0 <= start val of A
 SETB POUTPUT.1; flag R0 <= 42
 
 END:
