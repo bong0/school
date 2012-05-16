@@ -28,6 +28,6 @@ int main()
 	
 	//NumContainer<double> ncdObj = NumContainer<double>(3.14);
 	//cout << "pow is: " << ncdObj.getPow2() << endl;
-	
+	long int bla;
 	return 0;
 }
