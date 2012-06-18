@@ -3,11 +3,11 @@ P4 EQU P2
 
 ;bei low-pegel aktiv - prellen
 S1 EQU P4.0 ; Aufzug an UNTEN
-S2 EQU P4.1 ; select SW UNTEN
+S2 EQU P4.1 ; select SW UNTEN -> via 100nF C entprellt
 S3 EQU P4.2 ; Aufzug an MITTE
-S4 EQU P4.3 ; select SW MITTE
+S4 EQU P4.3 ; select SW MITTE -> via 100nF C entprellt
 S5 EQU P4.4 ; Aufzug an OBEN
-S6 EQU P4.5 ; select SW OBEN
+S6 EQU P4.5 ; select SW OBEN -> via 100nF C entprellt
 
 ;Statusindikatorlampen
 H1 EQU P5.0
@@ -16,6 +16,10 @@ H3 EQU P5.2
 
 ACALL UNTEN
 LOOP:
+
+JNB S2, PREPARE_UNTEN
+JNB S4, PREPARE_MITTE
+JNB S6, PREPARE_OBEN
 
 PREPARE_OBEN:
 SETB H3
@@ -57,7 +61,7 @@ MITTE:
   SJMP CHK_IN_MIDDLE
   
   MI_DESTRUCT:; turn off status indicator
-    CLRC S2
+    CLR H2
     RET
     
 CALL_UP:
