@@ -25,7 +25,6 @@ START:
 	  SETB AC
 	  SJMP LSHIFT; for readability
 	
-	
 	RSHIFT:
 	  RR A;
 	  SJMP START

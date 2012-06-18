@@ -1,6 +1,7 @@
 ;U3: a cheap chaser light
 
 mov A, #080H; leftmost bit (light) is set
+mov A, #01111111b
 mov P3, A; output on port3
 
 START:

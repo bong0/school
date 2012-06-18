@@ -1,0 +1,9 @@
+;counter b)
+POUTPUT EQU P3
+RST:
+mov A,#200D
+CYCLE:
+mov POUTPUT,A
+JZ RST
+DEC A
+SJMP CYCLE
