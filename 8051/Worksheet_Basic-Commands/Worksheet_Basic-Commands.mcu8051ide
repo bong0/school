@@ -262,10 +262,10 @@
 		/>
 	</general>
 	<other_options><![CDATA[]]></other_options>
-	<compiler_options><![CDATA[{_title 0 _list 0 _print 0 _nomod 0 max_ihex_rec_length 16 _object 0 _pagelength 0 QUIET 0 _symbols 0 CREATE_SIM_FILE 1 CREATE_BIN_FILE 1 optim_ena 0 _pagewidth 0 WARNING_LEVEL 0 _paging 0 _date 0} 0 {--verbose 1 -i {} --omf-51 0 --columns 0 custom {}} {adf 1} {-L 1 -M 0 custom {} -n 0 -P 0 -A 0 -a 0 -r {} -C 0 -c 0 -s 1 -u 0 -U 0 -w 0 -g MAP -quiet 0 -h 0 -x 0 -cpu 8051 -I 1 -i {}} {ihex 1 adf 1} {--out-fmt-s19 0 --fdollars-in-identifiers 0 --nogcse 0 --nooverlay 1 --no-peep-comments 0 --no-c-code-in-asm 0 --print-search-dirs 0 --nostdlib 0 --nolabelopt 0 --short-is-8bits 0 --cyclomatic 0 --compile-only 0 --peep-asm 0 --profile 0 --noinvariant 0 --no-reg-params 0 --noinduction 1 --out-fmt-ihx 0 --nojtbound 0 --opt-code-size 0 --less-pedantic 0 --no-peep 0 -S 0 --verbose 1 --funsigned-char 0 --xstack 0 --no-xinit-opt 0 --debug 1 --preprocessonly 0 --c1mode 0 -V 1 --float-reent 0 --parms-in-bank1 0 --opt-code-speed 0 --nostdinc 0 --main-return 0 --xram-movc 0 --fommit-frame-pointer 0 --fverbose-asm 0 --int-long-reent 0 --all-callee-saves 0 --stack-probe 0 --noloopreverse 0 --stack-auto 0 --use-stdout 0} {model --model-small standard --std-sdcc89 stack --pack-iram custom {}} {--codeseg {} --constseg {} --code-loc {} --stack-size {} --xram-loc {} --lib-path {} --xstack-loc {} --stack-loc {} --data-loc {}} {-l {} -L {} --disable-warning {} -I {}} {-l 1 -A {} -F hex custom {}} {adf 1}]]></compiler_options>
+	<compiler_options><![CDATA[{_title 0 _list 0 _print 0 _nomod 0 max_ihex_rec_length 16 _object 0 _pagelength 0 QUIET 0 _symbols 0 CREATE_SIM_FILE 1 CREATE_BIN_FILE 1 optim_ena 0 _pagewidth 0 WARNING_LEVEL 0 _paging 0 _date 0} 0 {--verbose 1 -i {} --omf-51 0 --columns 0 custom {}} {adf 1} {-L 1 -M 0 custom {} -n 0 -P 0 -A 0 -a 0 -r {} -C 0 -c 0 -s 1 -u 0 -U 0 -w 0 -g MAP -quiet 0 -h 0 -x 0 -cpu 8051 -I 1 -i {}} {ihex 1 adf 1} {--out-fmt-s19 0 --fdollars-in-identifiers 0 --nogcse 0 --nooverlay 1 --no-peep-comments 0 --no-c-code-in-asm 0 --print-search-dirs 0 --nostdlib 0 --compile-only 0 --peep-asm 0 --nolabelopt 0 --short-is-8bits 0 --cyclomatic 0 --profile 0 --noinvariant 0 --no-reg-params 0 --noinduction 1 --out-fmt-ihx 0 --nojtbound 0 --opt-code-size 0 --less-pedantic 0 --no-peep 0 -S 0 --verbose 1 --funsigned-char 0 --xstack 0 --no-xinit-opt 0 --debug 1 --preprocessonly 0 --c1mode 0 -V 1 --float-reent 0 --parms-in-bank1 0 --opt-code-speed 0 --nostdinc 0 --main-return 0 --xram-movc 0 --fommit-frame-pointer 0 --fverbose-asm 0 --int-long-reent 0 --all-callee-saves 0 --stack-probe 0 --noloopreverse 0 --stack-auto 0 --use-stdout 0} {model --model-small standard --std-sdcc89 stack --pack-iram custom {}} {--codeseg {} --constseg {} --code-loc {} --stack-size {} --xram-loc {} --lib-path {} --xstack-loc {} --stack-loc {} --data-loc {}} {-l {} -L {} --disable-warning {} -I {}} {-l 1 -A {} -F hex custom {}} {adf 1}]]></compiler_options>
 	<files
-		count="17"
-		current_file="13"
+		count="18"
+		current_file="17"
 		current_file2="-1"
 		pwin_sash="0"
 		selected_view="0"
@@ -481,23 +481,8 @@
 			<notes><![CDATA[]]></notes>
 		</file>
 
-		<file name="bedsrung.asm" active="yes" o_bookmark="0" p_bookmark="0" file_index="13" read_only="0" highlight="0">
-			<actual_line value="14"/>
-			<md5_hash value="C5CC8DAD6A417528ECFC67F91D7BF85B"/>
-			<path><![CDATA[]]></path>
-			<bookmarks>
-				0
-			</bookmarks>
-			<breakpoints>
-				0
-			</breakpoints>
-			<eol value="lf"/>
-			<encoding value="utf-8"/>
-			<notes><![CDATA[]]></notes>
-		</file>
-
-		<file name="counter.asm" active="yes" o_bookmark="0" p_bookmark="0" file_index="14" read_only="0" highlight="0">
-			<actual_line value="1"/>
+		<file name="counter.asm" active="yes" o_bookmark="0" p_bookmark="0" file_index="13" read_only="0" highlight="0">
+			<actual_line value="5"/>
 			<md5_hash value="1061C8F179BA6C1A0657AD30C6A1C2DC"/>
 			<path><![CDATA[]]></path>
 			<bookmarks>
@@ -511,7 +496,7 @@
 			<notes><![CDATA[]]></notes>
 		</file>
 
-		<file name="uebc.asm" active="yes" o_bookmark="0" p_bookmark="0" file_index="15" read_only="0" highlight="0">
+		<file name="uebc.asm" active="yes" o_bookmark="0" p_bookmark="0" file_index="14" read_only="0" highlight="0">
 			<actual_line value="14"/>
 			<md5_hash value="13F346DF4E6B5BD575C004BC7E7D7005"/>
 			<path><![CDATA[]]></path>
@@ -526,9 +511,39 @@
 			<notes><![CDATA[]]></notes>
 		</file>
 
-		<file name="aufzugsteuerung.asm" active="yes" o_bookmark="0" p_bookmark="0" file_index="16" read_only="0" highlight="0">
+		<file name="aufzugsteuerung.asm" active="yes" o_bookmark="0" p_bookmark="0" file_index="15" read_only="0" highlight="0">
 			<actual_line value="3"/>
-			<md5_hash value="75EAAE7A2B8A182EF73916F4B3C1D01B"/>
+			<md5_hash value="55026082203AC5B3677D178CDEA8F7C5"/>
+			<path><![CDATA[]]></path>
+			<bookmarks>
+				0
+			</bookmarks>
+			<breakpoints>
+				0
+			</breakpoints>
+			<eol value="lf"/>
+			<encoding value="utf-8"/>
+			<notes><![CDATA[]]></notes>
+		</file>
+
+		<file name="wait1sec.asm" active="yes" o_bookmark="0" p_bookmark="0" file_index="16" read_only="0" highlight="0">
+			<actual_line value="28"/>
+			<md5_hash value="CAB5F88ED5A11D40107C39FEC1443724"/>
+			<path><![CDATA[]]></path>
+			<bookmarks>
+				0
+			</bookmarks>
+			<breakpoints>
+				0
+			</breakpoints>
+			<eol value="lf"/>
+			<encoding value="utf-8"/>
+			<notes><![CDATA[]]></notes>
+		</file>
+
+		<file name="servo.asm" active="yes" o_bookmark="0" p_bookmark="0" file_index="17" read_only="0" highlight="0">
+			<actual_line value="6"/>
+			<md5_hash value="C16ED6557EDD7899FF47132464E7A574"/>
 			<path><![CDATA[]]></path>
 			<bookmarks>
 				0

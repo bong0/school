@@ -1,18 +1,18 @@
-P5 EQU P3 ;hehe :P
-P4 EQU P2 
+;P5 EQU P3
+;P4 EQU P2
 
 ;bei low-pegel aktiv - prellen
-S1 EQU P4.0 ; Aufzug an UNTEN
-S2 EQU P4.1 ; select SW UNTEN -> via 100nF C entprellt
-S3 EQU P4.2 ; Aufzug an MITTE
-S4 EQU P4.3 ; select SW MITTE -> via 100nF C entprellt
-S5 EQU P4.4 ; Aufzug an OBEN
-S6 EQU P4.5 ; select SW OBEN -> via 100nF C entprellt
+S1 EQU P2.0 ; Aufzug an UNTEN
+S2 EQU P2.1 ; select SW UNTEN -> via 100nF C entprellt
+S3 EQU P2.2 ; Aufzug an MITTE
+S4 EQU P2.3 ; select SW MITTE -> via 100nF C entprellt
+S5 EQU P2.4 ; Aufzug an OBEN
+S6 EQU P2.5 ; select SW OBEN -> via 100nF C entprellt
 
 ;Statusindikatorlampen
-H1 EQU P5.0
-H2 EQU P5.1
-H3 EQU P5.2
+H1 EQU P3.0
+H2 EQU P3.1
+H3 EQU P3.2
 
 ACALL UNTEN
 LOOP:
@@ -74,13 +74,13 @@ CALL_DOWN:
   
 ;Motor control
 UP:
-  CLR P5.6
-  SETB P5.7
+  CLR P3.6
+  SETB P3.7
   RET
 DOWN:
-  CLR P5.7
-  SETB P5.6
+  CLR P3.7
+  SETB P3.6
   RET
 HALT:
-  ANL P5,#03FH ; clear up and down bits
+  ANL P3,#03FH ; clear up and down bits
   RET
