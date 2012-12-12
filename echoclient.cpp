@@ -17,7 +17,7 @@ int main(){
 							  9600, //baudrate
 							  8, //data bits
 							  1, //stop bits
-							  1); //parity
+							  1 //parity
   );
 
   if(!serial.open()){
@@ -50,6 +50,8 @@ int main(){
 	}
 	delete [] buf;
   }
+
+  serial.close();
   
   exit 0;
 }
