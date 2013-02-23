@@ -1,12 +1,31 @@
-ORG 0BH
-LJMP CONV_SAVE
+PE EQU P0
+PA EQU P1
 
+ORG 00H
 
+;mov R0,#00H
+;mov A,#00H
+;mov A,P0
 
+;LOOP:
+;	acall SLEEP
+;	cjne A,PE,CHINC
+;SJMP LOOP
+;
+;CHINC:
+;	INC R0
+;	mov PA, R0
+;SJMP LOOP
+ACALL SLEEP
+SJMP END
+SLEEP:
+	mov r1, #0ffh
+	OUTER:
+		mov r2, #15d
+		INNER:
+		DJNZ R2, INNER
+	DJNZ R1, OUTER
+RET
 
-
-
-
-CONV_SAVE:
-RETI
-ENDIF
+END:
+END

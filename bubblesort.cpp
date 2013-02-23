@@ -45,20 +45,22 @@ statistik arrsort(int *arr, int arrsize){
     int max=0;
 
     for(int i=0; i<(arrsize); i++){
-        printf("\rsorting element %d of %d", i+1,arrsize);
+        printf("sorting element %d of %d\n", i+1,arrsize);
         max=0; // null max from last cycle
         int c; //make c avaliable after the loop
-        for(c=0; c<(arrsize-i); c++){    
+        for(c=1; c<(arrsize-i); c++){    
             if(arr[c]>arr[max]){
                 max=c; //save index where maximum is
+		printf("new max: %d at index %d\n", arr[max], max);
                 (stat.vgl)++; //iterate comparisons
             }             
         } c--; //loop iterates one, compensate
         //swap val @ index c with val @ index which is max
-        int tmp = arr[c];
-        arr[c] = arr[max];
-        arr[max] = tmp;
+        int tmp = arr[c]; // save 'original' value of last index of loop
+        arr[c] = arr[max]; // copy max value to last index of loop
+        arr[max] = tmp; // copy 'original' value to place of max
         (stat.vts)+=1; //iterate swaps
+        print_arr(arr, arrsize);
     }
     putchar('\n');
     
